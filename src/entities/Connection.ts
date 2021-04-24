@@ -5,13 +5,14 @@ import {
   PrimaryColumn,
   JoinColumn,
   ManyToOne,
+  UpdateDateColumn,
 } from 'typeorm';
 
 import { v4 as uuid } from 'uuid';
 import { User } from './User';
 
-@Entity('messages') // nome da tabela
-export class Message {
+@Entity('connections') // nome da tabela
+export class Connection {
   @PrimaryColumn()
   id: String;
 
@@ -19,7 +20,7 @@ export class Message {
   admin_id: String;
 
   @Column()
-  text: String;
+  socket_id: String;
 
   @JoinColumn({ name: 'user_id' })
   @ManyToOne(() => User)
@@ -30,6 +31,9 @@ export class Message {
 
   @CreateDateColumn()
   created_at: Date;
+
+  @UpdateDateColumn()
+  updated_at: Date;
 
   constructor() {
     if (!this.id) {

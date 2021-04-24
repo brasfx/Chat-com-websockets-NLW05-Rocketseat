@@ -20,4 +20,8 @@ export class UsersService {
 
     return user; // retorna novo user
   }
+  async findByEmail(email: string) {
+    const user = await this.userRepository.findOne({ email });
+    return user;
+  }
 }
