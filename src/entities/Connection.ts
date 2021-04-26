@@ -14,20 +14,20 @@ import { User } from './User';
 @Entity('connections') // nome da tabela
 export class Connection {
   @PrimaryColumn()
-  id: String;
+  id: string;
 
   @Column()
-  admin_id: String;
+  admin_id: string;
 
   @Column()
-  socket_id: String;
+  socket_id: string;
 
   @JoinColumn({ name: 'user_id' })
   @ManyToOne(() => User)
   user: User;
 
   @Column()
-  user_id: String;
+  user_id: string;
 
   @CreateDateColumn()
   created_at: Date;

@@ -11,13 +11,13 @@ import { v4 as uuid } from 'uuid';
 @Entity('settings') // nome da tabela
 export class Setting {
   @PrimaryColumn()
-  id: String;
+  id: string;
 
   @Column()
-  username: String;
+  username: string;
 
   @Column()
-  chat: Boolean;
+  chat: boolean;
 
   @UpdateDateColumn()
   update_at: Date;
